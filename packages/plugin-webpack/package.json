@@ -1,0 +1,22 @@
+{
+  "name": "@nsp/nsp-plugin-webpack",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "npm run build && tsc -w"
+  },
+  "dependencies": {
+    "koa": "^2.6.1",
+    "webpack": "^4.23.0",
+    "webpack-chain": "^5.0.1",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpackbar": "^2.6.3"
+  },
+  "devDependencies": {
+    "@nsp/nsp-cli": "^0.0.1"
+  },
+  "author": "barry.yansh@gmail.com",
+  "license": "MIT"
+}

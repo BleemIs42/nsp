@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "name": "nsp",
+  "version": "1.0.0",
+  "description": "cli, plugins",
+  "workspaces": [
+    "packages/*",
+    "example/*"
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "watch-cli": "yarn workspace @nsp/nsp-cli watch",
+    "watch-plugin-webpack": "yarn workspace @nsp/nsp-plugin-webpack watch",
+    "watch": "concurrently \"npm:watch-*\"",
+    "cli": "./packages/cli/bin/nsp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BarryYan/nsp.git"
+  },
+  "keywords": [
+    "cli",
+    "plugins"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BarryYan/nsp/issues"
+  },
+  "homepage": "https://github.com/BarryYan/nsp#readme",
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "lerna": "^3.4.3",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.1.5"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "react-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nsp",
+    "build": "nsp build"
+  },
+  "devDependencies": {
+    "@nsp/nsp-cli": "^0.0.1",
+    "@nsp/nsp-plugin-webpack": "^0.0.1"
+  },
+  "author": "barry.yansh@gmail.com",
+  "license": "MIT"
+}
