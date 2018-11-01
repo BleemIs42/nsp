@@ -44,7 +44,7 @@ if (!targetCommand) {
     )
     .help('h')
     .alias('h', 'help')
-    .epilogue(`run ${chalk.blue('$0 help [command]')} for usage of a specific command..`)
+    .epilogue(`Run ${chalk.blue('$0 help [command]')} for usage of a specific command..`)
     .showHelp()
     .argv
 } else if (!allCommand[targetCommand]) {
