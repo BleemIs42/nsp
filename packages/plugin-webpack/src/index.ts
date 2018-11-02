@@ -1,5 +1,4 @@
-import { Interfaces } from '@nsp/nsp-cli'
-export default (): Interfaces.IPluginCfg => {
+export default () => {
   return {
     command: ['dev', 'start a dev server'],
     run() {

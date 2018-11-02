@@ -3,6 +3,7 @@
   "rules": {
     "no-implicit-dependencies": false,
     "no-namespace":false,
-    "no-console":false
+    "no-console":false,
+    "no-empty": false
   }
 }
