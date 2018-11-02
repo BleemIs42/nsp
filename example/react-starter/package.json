@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nsp",
+    "start": "nsp dev",
     "build": "nsp build"
   },
   "devDependencies": {
-    "@nsp/nsp-cli": "^0.0.1",
-    "@nsp/nsp-plugin-webpack": "^0.0.1"
+    "@nsp/plugin-webpack": "^0.0.1"
   },
   "author": "barry.yansh@gmail.com",
   "license": "MIT"

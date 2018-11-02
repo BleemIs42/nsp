@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: ['@nsp/nsp-plugin-webpack']
+  plugins: ['@nsp/plugin-webpack']
 }

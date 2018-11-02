@@ -10,10 +10,10 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "watch-cli": "yarn workspace @nsp/nsp-cli watch",
-    "watch-plugin-webpack": "yarn workspace @nsp/nsp-plugin-webpack watch",
     "watch": "concurrently \"npm:watch-*\"",
-    "cli": "./packages/cli/bin/nsp.js"
+    "watch-cli": "yarn workspace @nsp/cli watch",
+    "watch-plugin-utils": "yarn workspace @nsp/plugin-utils watch",
+    "watch-plugin-webpack": "yarn workspace @nsp/plugin-webpack watch"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,6 @@
     "cli",
     "plugins"
   ],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/BarryYan/nsp/issues"
   },
@@ -35,5 +33,7 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.1.5"
-  }
+  },
+  "author": "barry.yansh@gmail.com",
+  "license": "MIT"
 }
