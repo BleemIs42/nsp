@@ -1,32 +1,32 @@
 import { path } from '@nsp/plugin-utils'
 import { writeFileSync } from 'fs'
 import { join } from 'path'
-import { mkdir } from 'shelljs'
+import { mkdir, touch } from 'shelljs'
 import { info, start, success } from 'signale'
 import { loadCfg } from '../load'
 
-export const command = 'init [dir]'
-export const desc = 'init current dir or create a dir and init it with nsp config file'
+export const command = 'init'
+export const desc = 'init current dir with nsp config file'
+export const handler = (argv) => {
+  start('init...')
+  init()
+  success('init success!')
+}
 
-const createCfgFile = (dir = '') => {
+const createCfgFile = () => {
   const cfgContent = `module.exports = {
-plugins: []
+  plugins: []
 }`
-  const cfgFiePath = join(path.cwd, dir, '.nsprc.js')
+  const cfgFiePath = join(path.cwd, '.nsprc.js')
   info('create .nsprc.js')
   writeFileSync(cfgFiePath, cfgContent, 'utf-8')
 }
 
-export const handler = (argv) => {
-  start('init...')
-  if(argv.dir){
-    info(`create ${argv.dir}`)
-    mkdir('-p', join(path.cwd, argv.dir))
-    createCfgFile(argv.dir)
-  }else{
-    if (!loadCfg()) {
-      createCfgFile()
-    }
-  }
-  success('init success!')
+const init = () => {
+  if (loadCfg()) { return }
+  createCfgFile()
+  mkdir('-p', path.absSrcPath)
+  mkdir('-p', path.absPagesPath)
+  touch(join(path.absPagesPath, 'index.js'))
 }
+
