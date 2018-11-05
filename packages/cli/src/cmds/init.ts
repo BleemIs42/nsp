@@ -25,7 +25,7 @@ const createCfgFile = () => {
 const init = () => {
   if (loadCfg()) { return }
   createCfgFile()
-  mkdir('-p', path.absSrcPath)
+  mkdir('-p', path.absTmpDirPath)
   mkdir('-p', path.absPagesPath)
   touch(join(path.absPagesPath, 'index.js'))
 }

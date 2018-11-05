@@ -2,9 +2,6 @@ import chalk from 'chalk'
 import { usage } from 'yargs'
 import { loadPlugins } from './load'
 
-// e.g: .nsprc.js
-// https://github.com/davidtheclark/cosmiconfig#cosmiconfigoptions
-
 const plugins = loadPlugins()
 
 const cmds = plugins

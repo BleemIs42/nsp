@@ -10,6 +10,8 @@ interface ICfg {
   plugins: Array<string | [string, object]>
 }
 
+// e.g: .nsprc.js
+// https://github.com/davidtheclark/cosmiconfig#cosmiconfigoptions
 export const loadCfg: (name?: string) => ICfg = (name = 'nsp') => {
   const cfgFile = cosmiconfig(name).searchSync()
   return cfgFile && cfgFile.config 
@@ -17,7 +19,8 @@ export const loadCfg: (name?: string) => ICfg = (name = 'nsp') => {
 
 export const loadPlugins = (): IPluginCfg[] => {
   const cfg: ICfg = loadCfg()
-  const { plugins = [] } = cfg || {}
+  if(!cfg) { return }
+  const { plugins = [] } = cfg
   return plugins.map((plugin) => {
     const [name, opts = {}] = Array.isArray(plugin) ? plugin : [plugin]
     const pluginFile = require(resolveCwd(name))
