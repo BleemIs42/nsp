@@ -37,33 +37,64 @@ export const loadPlugins: (moduleName?: string) => Array<() => Icli> = (moduleNa
   })
 }
 
-export const getClis = ():Icli[] => loadPlugins().map(pluginFn => pluginFn())
+export const getClis = (): Icli[] => loadPlugins().map((pluginFn) => pluginFn())
 
-export const showHelp = (clis: Icli[]) => {
+export const getCmd: (command: string) => string = (command) => command.split(' ')[0]
+
+export const showHelp = (clis: Icli[], isHelp: boolean) => {
   const ui = cliui()
+  const category = isHelp ? 'Options:' : 'Commands:'
+  const command = isHelp ? clis[0].command : '<command> [options]'
   ui.div({
     padding: [1, 0, 1, 2],
-    text: `Usage: ${moduleName} <command> [options]`
+    text: `Usage: ${moduleName} ${command}`
   })
   ui.div({
     padding: [0, 0, 1, 2],
-    text: 'Commands:'
+    text: category
   })
-  clis.forEach((cli) => {
-    ui.div(
-      {
+  if (isHelp) {
+    const { desc, builder = {} } = clis[0]
+    Object.keys(builder).forEach((opt) => {
+      ui.div({
         padding: [0, 0, 0, 4],
-        text: chalk.green(cli.command),
+        text: `--${chalk.green(opt)}`,
         width: 14
-      },
-      {
-        text: cli.desc
-      }
-    )
-  })
-  ui.div({
-    padding: [1, 0, 2, 2],
-    text: `Run ${chalk.blue(`${moduleName} [command]`)} for a specific command.`
-  })
+      })
+      Object.keys(builder[opt]).forEach((key) => {
+        ui.div(
+          {
+            padding: [0, 0, 0, 6],
+            text: key,
+            width: 16
+          },
+          {
+            text: chalk.green(builder[opt][key])
+          }
+        )
+      })
+    })
+    ui.div({
+      padding: [1, 0, 1, 2],
+      text: `Run ${chalk.blue(`${moduleName} ${getCmd(command)}`)} for ${desc}`
+    })
+  } else {
+    clis.forEach((cli) => {
+      ui.div(
+        {
+          padding: [0, 0, 0, 4],
+          text: chalk.green(cli.command),
+          width: 14
+        },
+        {
+          text: cli.desc
+        }
+      )
+    })
+    ui.div({
+      padding: [1, 0, 1, 2],
+      text: `Run ${chalk.blue(`${moduleName} help [command]`)} for usage of a specific command.`
+    })
+  }
   process.stdout.write(ui.toString())
 }

@@ -5,8 +5,17 @@ import { mkdir, touch } from 'shelljs'
 import { info, start, success } from 'signale'
 import { loadCfg } from '../utils'
 
-export const command = 'init'
+export const command = 'init [dir]'
 export const desc = 'init current dir with nsp config file'
+export const builder = {
+  'dir': {
+    default: 'test',
+    hhh: 'ddd'
+  },
+  'p': {
+    default: '111'
+  }
+}
 export const handler = (argv) => {
   start('init...')
   init()
