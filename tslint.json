@@ -4,6 +4,7 @@
     "no-implicit-dependencies": false,
     "no-console":false,
     "no-empty": false,
-    "no-var-requires":false
+    "no-var-requires":false,
+    "no-shadowed-variable": false
   }
 }

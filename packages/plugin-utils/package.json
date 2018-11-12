@@ -6,6 +6,9 @@
     "build": "rm -rf lib && tsc",
     "watch": "npm run build && tsc -w"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "cosmiconfig": "^5.0.6",
     "resolve-cwd": "^2.0.0"

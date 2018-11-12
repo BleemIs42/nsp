@@ -3,7 +3,7 @@ import { writeFileSync } from 'fs'
 import { join } from 'path'
 import { mkdir, touch } from 'shelljs'
 import { info, start, success } from 'signale'
-import { loadCfg } from '../load'
+import { loadCfg } from '../utils'
 
 export const command = 'init'
 export const desc = 'init current dir with nsp config file'

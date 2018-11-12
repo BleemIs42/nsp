@@ -8,6 +8,7 @@
     "example/*"
   ],
   "scripts": {
+    "nsp": "./packages/cli/bin/nsp.js",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "watch": "concurrently \"npm:watch-*\"",

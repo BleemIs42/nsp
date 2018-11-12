@@ -1,18 +1,20 @@
 import chalk from 'chalk'
-import { usage } from 'yargs'
-import { loadPlugins } from './load'
+import { argv, usage } from 'yargs'
+import cmds from './cmds'
+import { getClis, showHelp } from './utils'
 
-const plugins = loadPlugins()
+const clis = getClis()
 
-const cmds = plugins
-  .reduce(
-    (_, { command: [name, desc, builder, handler = () => {}], run }) =>
-      _.command(name, desc, builder, (argv) => {
-        run()
-        handler(argv)
-      }),
-    usage(`\nUsage: <command> [options]`).commandDir('cmds')
-  )
+const allCli = [...cmds, ...clis]
+
+// tslint:disable-next-line:no-unused-expression
+allCli
+  .reduce((_, command) => _.command(command), usage(`\nUsage: <command> [options]`))
   .help('h')
   .alias('h', 'help')
-  .epilogue(`Run ${chalk.blue('$0 help [command]')} for usage of a specific command..`).argv
+  .epilogue(`Run ${chalk.blue('$0 help')} see the command list`).argv
+
+const [cmd] = argv._
+if (!cmd) {
+  showHelp(allCli)
+}

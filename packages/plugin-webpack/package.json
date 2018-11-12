@@ -7,6 +7,9 @@
     "build": "rm -rf lib && tsc",
     "watch": "npm run build && tsc -w"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@nsp/plugin-utils": "^0.0.1",
     "koa": "^2.6.1",
