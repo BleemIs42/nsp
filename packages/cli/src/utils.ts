@@ -58,7 +58,7 @@ export const showHelp = (clis: Icli[], isHelp: boolean) => {
     Object.keys(builder).forEach((opt) => {
       ui.div({
         padding: [0, 0, 0, 4],
-        text: `--${chalk.green(opt)}`,
+        text: `--${chalk.greenBright(opt)}`,
         width: 14
       })
       Object.keys(builder[opt]).forEach((key) => {
@@ -69,21 +69,21 @@ export const showHelp = (clis: Icli[], isHelp: boolean) => {
             width: 16
           },
           {
-            text: chalk.green(builder[opt][key])
+            text: chalk.blueBright(builder[opt][key])
           }
         )
       })
     })
     ui.div({
       padding: [1, 0, 1, 2],
-      text: `Run ${chalk.blue(`${moduleName} ${getCmd(command)}`)} for ${desc}`
+      text: `Run ${chalk.blueBright(`${moduleName} ${getCmd(command)}`)} for ${desc}`
     })
   } else {
     clis.forEach((cli) => {
       ui.div(
         {
           padding: [0, 0, 0, 4],
-          text: chalk.green(cli.command),
+          text: chalk.greenBright(cli.command),
           width: 14
         },
         {
@@ -93,7 +93,7 @@ export const showHelp = (clis: Icli[], isHelp: boolean) => {
     })
     ui.div({
       padding: [1, 0, 1, 2],
-      text: `Run ${chalk.blue(`${moduleName} help [command]`)} for usage of a specific command.`
+      text: `Run ${chalk.blueBright(`${moduleName} help [command]`)} for usage of a specific command.`
     })
   }
   process.stdout.write(ui.toString())
