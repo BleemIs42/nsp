@@ -8,7 +8,7 @@ export default {
     return join(this.cwd, 'src')
   },
   get absTmpDirPath(){
-    return join(this.absSrcPath, '.nsp')
+    return join(this.absSrcPath, `.nsp`)
   },
   get absPagesPath(){
     return join(this.absSrcPath, 'pages')

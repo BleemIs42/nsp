@@ -1,72 +1,81 @@
-import * as api from '@nsp/plugin-utils'
+import { CFG_KEYS, Interfaces, ioc, NSP } from '@nsp/plugin-utils'
 import chalk from 'chalk'
 import * as cliui from 'cliui'
 import * as cosmiconfig from 'cosmiconfig'
 import * as resolveCwd from 'resolve-cwd'
-interface Icli {
-  command: string
-  desc: string
-  builder?: object
-  handler: (argv: object) => void
-}
-type IPlugin = (api: object, opts: object) => Icli
-interface ICfg {
+import { ls } from 'shelljs'
+import { warn } from 'signale'
+
+interface Cfg {
   plugins: Array<string | [string, object]>
 }
 
-export const moduleName = 'nsp'
-
 // e.g: .nsprc.js
 // https://github.com/davidtheclark/cosmiconfig#cosmiconfigoptions
-export const loadCfg: (name?: string) => ICfg = (name = moduleName) => {
+export const loadCfg: (name: string) => Cfg = (name) => {
   const cfgFile = cosmiconfig(name).searchSync()
   return cfgFile && cfgFile.config
 }
 
-export const loadPlugins: (moduleName?: string) => Array<() => Icli> = (moduleName) => {
-  const cfg: ICfg = loadCfg(moduleName)
-  if (!cfg) {
-    return []
-  }
-  const { plugins = [] } = cfg
-  return plugins.map((plugin) => {
-    const [name, opts = {}] = Array.isArray(plugin) ? plugin : [plugin]
-    const pluginFile = require(resolveCwd(name))
-    const pluginFn = pluginFile.default || pluginFile
-    return () => pluginFn(api, opts)
+const getPluginName = (name) => {
+  const pluginNames = /plugin-(\w+)$/.exec(name)
+  return pluginNames ? pluginNames[1] : name
+}
+
+export const addDefaultCommands = () => {
+  ls(`${__dirname}/cmds/*.js`).forEach(file => {
+    require(file)
   })
 }
 
-export const getClis = (): Icli[] => loadPlugins().map((pluginFn) => pluginFn())
+export const loadPlugins: (cfg: Cfg) => void = (cfg) => {
+  if (!cfg) {
+    return
+  }
+  const { plugins = [] } = cfg
+  plugins.forEach((plugin) => {
+    const [cfgName, opts = {}] = Array.isArray(plugin) ? plugin : [plugin]
+    const pluginName = getPluginName(cfgName)
+    const pluginModule = resolveCwd.silent(`@${NSP}/plugin-${pluginName}`) || resolveCwd.silent(pluginName)
+    if (pluginModule) {
+      ioc.bind(CFG_KEYS.PLUGIN_CFG(pluginName), opts)
+      require(pluginModule)
+    } else {
+      warn(`Plugin ${pluginName} does not found`)
+    }
+  })
+}
 
-export const getCmd: (command: string) => string = (command) => command.split(' ')[0]
+export const getClis = (): Interfaces.Cli[] => ioc.getBound(CFG_KEYS.CLI)
 
-export const showHelp = (clis: Icli[], isHelp: boolean) => {
+export const getCmd: (cmd: string) => string = (cmd) => cmd.split(' ')[0]
+
+export const showHelp = (clis: Interfaces.Cli[], isHelp: boolean = false) => {
   const ui = cliui()
   const category = isHelp ? 'Options:' : 'Commands:'
   const command = isHelp ? clis[0].command : '<command> [options]'
   ui.div({
     padding: [1, 0, 1, 2],
-    text: `Usage: ${moduleName} ${command}`
+    text: `Usage: ${NSP} ${command}`
   })
   ui.div({
     padding: [0, 0, 1, 2],
     text: category
   })
   if (isHelp) {
-    const { desc, builder = {} } = clis[0]
+    const { describe, builder = {} } = clis[0]
     Object.keys(builder).forEach((opt) => {
       ui.div({
-        padding: [0, 0, 0, 4],
+        padding: [0, 0, 0, 0],
         text: `--${chalk.greenBright(opt)}`,
-        width: 14
+        width: 15
       })
       Object.keys(builder[opt]).forEach((key) => {
         ui.div(
           {
             padding: [0, 0, 0, 6],
             text: key,
-            width: 16
+            width: 25
           },
           {
             text: chalk.blueBright(builder[opt][key])
@@ -76,7 +85,7 @@ export const showHelp = (clis: Icli[], isHelp: boolean) => {
     })
     ui.div({
       padding: [1, 0, 1, 2],
-      text: `Run ${chalk.blueBright(`${moduleName} ${getCmd(command)}`)} for ${desc}`
+      text: `Run ${chalk.blueBright(`${NSP} ${getCmd(command)}`)} for ${describe}`
     })
   } else {
     clis.forEach((cli) => {
@@ -84,16 +93,16 @@ export const showHelp = (clis: Icli[], isHelp: boolean) => {
         {
           padding: [0, 0, 0, 4],
           text: chalk.greenBright(cli.command),
-          width: 14
+          width: 25
         },
         {
-          text: cli.desc
+          text: cli.describe
         }
       )
     })
     ui.div({
       padding: [1, 0, 1, 2],
-      text: `Run ${chalk.blueBright(`${moduleName} help [command]`)} for usage of a specific command.`
+      text: `Run ${chalk.blueBright(`${NSP} help [command]`)} for usage of a specific command.`
     })
   }
   process.stdout.write(ui.toString())

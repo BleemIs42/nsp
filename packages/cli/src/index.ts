@@ -1,30 +1,43 @@
+import { NSP } from '@nsp/plugin-utils'
 import chalk from 'chalk'
-import { error } from 'signale'
+import { warn } from 'signale'
 import { argv, usage } from 'yargs'
-import cmds from './cmds'
-import { getClis, getCmd, moduleName, showHelp } from './utils'
+import { addDefaultCommands, getClis, getCmd, loadCfg, loadPlugins, showHelp } from './utils'
 
-const clis = getClis()
+addDefaultCommands()
+loadPlugins(loadCfg(NSP))
 
-const allCli = [...cmds, ...clis]
-
+const allCli = getClis()
 // tslint:disable-next-line:no-unused-expression
 allCli
-  .reduce((_, command) => _.command(command), usage(`\nUsage: <command> [options]`))
+  .reduce((_, cli) => {
+    const { command, describe, builder, handler } = cli
+    return _.command({
+      builder,
+      command,
+      describe,
+      handler: handler.bind(cli)
+    })
+  }, usage(`Usage: $0 <command> [options]`))
+  // .reduce((_, cli) => _.command(cli), usage(`\nUsage: $0 <command> [options]`))
   .help(false)
-  .version(false)
-  .epilogue(`Run ${chalk.blueBright('$0 help')} see the command list`).argv
+  .version(false).argv
 
 const [cmd, opt] = argv._
 const isHelp = cmd === 'help'
+const warnText = `Command ${chalk.cyanBright(isHelp ? opt : cmd)} does not exists, run ${chalk.blueBright(
+  `${NSP} help`
+)} to get the command list`
 
 if (!cmd || isHelp) {
   const clis = isHelp ? allCli.filter(({ command }) => getCmd(command) === opt) : allCli
   if (clis.length) {
-    showHelp(clis, true)
-  } else {
+    showHelp(clis, isHelp)
+  } else if (!opt) {
     showHelp(allCli, false)
+  } else {
+    warn(warnText)
   }
-}else if(allCli.filter(({command}) => command === cmd).length === 0){
-  error(`Command ${chalk.cyanBright(cmd)} does not exists, run ${chalk.blueBright(`${moduleName} help`)} to get command list`)
+} else if (allCli.filter(({ command }) => cmd === command).length === 0) {
+  warn(warnText)
 }

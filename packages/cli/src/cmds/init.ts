@@ -1,26 +1,11 @@
-import { path } from '@nsp/plugin-utils'
+import { CFG_KEYS, getCfg, Interfaces, ioc, NSP, path } from '@nsp/plugin-utils'
 import { writeFileSync } from 'fs'
 import { join } from 'path'
 import { mkdir, touch } from 'shelljs'
 import { info, start, success } from 'signale'
 import { loadCfg } from '../utils'
 
-export const command = 'init [dir]'
-export const desc = 'init current dir with nsp config file'
-export const builder = {
-  'dir': {
-    default: 'test',
-    hhh: 'ddd'
-  },
-  'p': {
-    default: '111'
-  }
-}
-export const handler = (argv) => {
-  start('init...')
-  init()
-  success('init success!')
-}
+const INIT = 'init'
 
 const createCfgFile = () => {
   const cfgContent = `module.exports = {
@@ -32,10 +17,41 @@ const createCfgFile = () => {
 }
 
 const init = () => {
-  if (loadCfg()) { return }
+  if (loadCfg(NSP)) {
+    return
+  }
   createCfgFile()
   mkdir('-p', path.absTmpDirPath)
   mkdir('-p', path.absPagesPath)
   touch(join(path.absPagesPath, 'index.js'))
 }
 
+class Init implements Interfaces.Cli {
+  public get config(){
+    return getCfg(INIT)
+  }
+  public get command() {
+    return `${INIT} [dir]`
+  }
+  public get describe() {
+    return 'init current dir with nsp config file'
+  }
+  public get builder() {
+    return {
+      dir: {
+        default: 'test',
+        hhh: 'ddd'
+      },
+      p: {
+        default: '111'
+      }
+    }
+  }
+  public handler(argv) {
+    start('init...')
+    init()
+    success('init success!')
+  }
+}
+
+ioc.bind(CFG_KEYS.CLI, Init)
