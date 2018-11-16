@@ -8,13 +8,8 @@ import * as webpack from 'webpack'
 import chainConfig from './config'
 import { gzipSize } from './utils'
 
-function canReadAsset(asset) {
-  return (
-    /\.(js|css|html)$/.test(asset) &&
-    !/service-worker\.js/.test(asset) &&
-    !/precache-manifest\.[0-9a-f]+\.js/.test(asset)
-  )
-}
+const isLarge = (size) => size > 1024 * 1024 * 255
+const notNeedGzip = (name) => /\.(jpe?g|png|gif|svg|mp3|3gp|mp4|swf|webm|woff2?|eot|otf)/i
 
 export default class Build implements Interfaces.Cli {
   public get command() {
@@ -38,14 +33,14 @@ export default class Build implements Interfaces.Cli {
         gzip: string
       }> = webpackStats
         .toJson({ all: false, assets: true })
-        .assets.filter((asset) => canReadAsset(asset.name))
+        .assets.sort((a, b) => a.size - b.size)
         .reduce(
           (acc, asset) => [
             ...acc,
             {
               file: join(basename(buildFolder), asset.name),
-              size: fileSize(asset.size),
-              gzip: fileSize(gzipSize(join(buildFolder, asset.name)))
+              size: isLarge(asset.size) ? chalk.yellowBright(fileSize(asset.size)) : fileSize(asset.size),
+              gzip: notNeedGzip(asset.name) ? 'No' : fileSize(gzipSize(join(buildFolder, asset.name)))
             }
           ],
           [
