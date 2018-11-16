@@ -93,9 +93,9 @@ export default (mode: 'development' | 'production') => {
   config.optimization.splitChunks({
     cacheGroups: {
       vendors: {
-        test: /[\\/]node_modules[\\/]/,
+        chunks: 'all',
         name: 'vendors',
-        chunks: 'all'
+        test: /[\\/]node_modules[\\/]/,
       }
     }
   })
@@ -134,8 +134,8 @@ export default (mode: 'development' | 'production') => {
     config.plugin('mini-css').tap((args) => [
       {
         ...args[0],
+        chunkFilename: `css/${filename}.css`,
         filename: `css/${filename}.css`,
-        chunkFilename: `css/${filename}.css`
       }
     ])
   }

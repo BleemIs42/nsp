@@ -9,7 +9,7 @@ import chainConfig from './config'
 import { gzipSize } from './utils'
 
 const isLarge = (size) => size > 1024 * 1024 * 255
-const notNeedGzip = (name) => /\.(jpe?g|png|gif|svg|mp3|3gp|mp4|swf|webm|woff2?|eot|otf)/i
+const notNeedGzip = (name) => /\.(jpe?g|png|gif|svg|mp3|3gp|mp4|swf|webm|woff2?|eot|otf)/i.test(name)
 
 export default class Build implements Interfaces.Cli {
   public get command() {
@@ -39,15 +39,15 @@ export default class Build implements Interfaces.Cli {
             ...acc,
             {
               file: join(basename(buildFolder), asset.name),
+              gzip: notNeedGzip(asset.name) ? 'No' : fileSize(gzipSize(join(buildFolder, asset.name))),
               size: isLarge(asset.size) ? chalk.yellowBright(fileSize(asset.size)) : fileSize(asset.size),
-              gzip: notNeedGzip(asset.name) ? 'No' : fileSize(gzipSize(join(buildFolder, asset.name)))
             }
           ],
           [
             {
               file: 'File',
+              gzip: 'Gzip\n',
               size: 'Size',
-              gzip: 'Gzip\n'
             }
           ]
         )
@@ -56,9 +56,9 @@ export default class Build implements Interfaces.Cli {
       assets.forEach(({ size, gzip, file }) => {
         ui.div(
           {
+            padding: [0, 0, 0, 2],
             text: gzip,
             width: 15,
-            padding: [0, 0, 0, 2]
           },
           {
             text: size,
