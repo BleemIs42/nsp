@@ -6,9 +6,8 @@ import { fatal } from 'signale'
 import * as webpack from 'webpack'
 import * as devMiddleware from 'webpack-dev-middleware'
 import * as hotMiddleware from 'webpack-hot-middleware'
-import chainConfig from './config'
-import { getCfg } from './utils'
-
+import chainConfig from '../config'
+import { getCfg } from '../utils'
 
 export default class Dev implements Interfaces.Cli {
   public get command() {
@@ -29,9 +28,13 @@ export default class Dev implements Interfaces.Cli {
     const config = chainConfig('development')
     const fastify = Fastify()
 
-    Object.keys(config.entryPoints.entries()).forEach((name) => {
-      config.entry(name).add('webpack-hot-middleware/client')
-    })
+    const cfgSet = getCfg()
+
+    if (cfgSet.hot) {
+      Object.keys(config.entryPoints.entries()).forEach((name) => {
+        config.entry(name).add('webpack-hot-middleware/client')
+      })
+    }
 
     const compiler = webpack(config.toConfig())
     const webpackInstance = devMiddleware(compiler, {
@@ -41,11 +44,14 @@ export default class Dev implements Interfaces.Cli {
       }
     })
     fastify.use(webpackInstance)
-    fastify.use(
-      hotMiddleware(compiler, {
-        log: false
-      })
-    )
+
+    if (cfgSet.hot) {
+      fastify.use(
+        hotMiddleware(compiler, {
+          log: false
+        })
+      )
+    }
 
     fastify.setNotFoundHandler((request, reply) => {
       try {
@@ -64,7 +70,17 @@ export default class Dev implements Interfaces.Cli {
       }
     })
 
-    getCfg().fastify(fastify)
+    cfgSet.fastify(fastify)
+
+    Object.keys(cfgSet.proxy).forEach((prefix) => {
+      const { target, ...rest } = cfgSet.proxy[prefix]
+      fastify.register(require('fastify-http-proxy'), {
+        upstream: target,
+        prefix,
+        rewritePrefix: prefix,
+        ...rest
+      })
+    })
 
     fastify.listen(port, '0.0.0.0', (err) => {
       if (err) {

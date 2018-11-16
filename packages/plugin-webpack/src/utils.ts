@@ -9,12 +9,24 @@ export const isInteractive = process.stdout.isTTY
 export const getCfg = () => {
   const pluginCfg = getPluginCfg(PLUGIN_NAME)
   return {
+    hot: true,
+    alias: {},
+    define: {},
+    proxy: {},
+    tsImportOption: [],
     webpack(config) {},
     fastify(server) {},
     browserList() {
       return ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9']
     },
-    ...pluginCfg
+    ...pluginCfg,
+    tsLoaderOption: {
+      transformers: {
+        after: [],
+        before: [],
+      },
+      ...(pluginCfg.tsLoaderOption || {}),
+    },
   }
 }
 

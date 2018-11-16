@@ -2,11 +2,11 @@ import { Interfaces } from '@nsp/plugin-utils'
 import chalk from 'chalk'
 import * as cliui from 'cliui'
 import * as fileSize from 'filesize'
-import { basename, dirname, join } from 'path'
+import { basename, join } from 'path'
 import { fatal } from 'signale'
 import * as webpack from 'webpack'
-import chainConfig from './config'
-import { gzipSize } from './utils'
+import chainConfig from '../config'
+import { gzipSize } from '../utils'
 
 const isLarge = (size) => size > 1024 * 1024 * 255
 const notNeedGzip = (name) => /\.(jpe?g|png|gif|svg|mp3|3gp|mp4|swf|webm|woff2?|eot|otf)/i.test(name)

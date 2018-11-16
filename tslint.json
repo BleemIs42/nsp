@@ -6,6 +6,7 @@
     "no-empty": false,
     "no-var-requires":false,
     "no-shadowed-variable": false,
-    "interface-name":false
+    "interface-name":false,
+    "object-literal-sort-keys": false
   }
 }
