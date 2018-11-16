@@ -10,16 +10,7 @@ loadPlugins(loadCfg(NSP))
 const allCli = getClis()
 // tslint:disable-next-line:no-unused-expression
 allCli
-  .reduce((_, cli) => {
-    const { command, describe, builder, handler } = cli
-    return _.command({
-      builder,
-      command,
-      describe,
-      handler: handler.bind(cli)
-    })
-  }, usage(`Usage: $0 <command> [options]`))
-  // .reduce((_, cli) => _.command(cli), usage(`\nUsage: $0 <command> [options]`))
+  .reduce((_, cli) => _.command(cli), usage(`\nUsage: $0 <command> [options]`))
   .help(false)
   .version(false).argv
 

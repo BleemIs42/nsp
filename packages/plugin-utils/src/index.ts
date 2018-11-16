@@ -1,5 +1,4 @@
 export { default as path } from './path'
-export { default as event } from './event'
 import IOC from './ioc'
 
 export const NSP = 'nsp'
@@ -20,4 +19,4 @@ export namespace Interfaces{
 }
 
 export const ioc = new IOC()
-export const getCfg = (pluginName) => ioc.getBound(CFG_KEYS.PLUGIN_CFG(pluginName))[0]
+export const getPluginCfg = (pluginName) => ioc.getBound(CFG_KEYS.PLUGIN_CFG(pluginName))[0]

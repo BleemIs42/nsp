@@ -1,4 +1,4 @@
-import { isClass } from './utils'
+import { autoBind, isClass } from './utils'
 // tslint:disable-next-line:no-namespace
 namespace IIOC {
   export interface Lookup {
@@ -49,7 +49,8 @@ export default class IOC implements IIOC.IOC {
   public bind(name, target: any) {
     let value = target
     if (isClass(target)) {
-      value = new target()
+      const BindTarget = autoBind(target)
+      value = new BindTarget()
     }
     return this.dir.add(name, value)
   }

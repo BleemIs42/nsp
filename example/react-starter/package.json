@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nsp",
+    "start": "nsp dev",
     "build": "nsp build"
   },
   "devDependencies": {
-    "@nsp/plugin-webpack": "^0.0.1"
+    "@nsp/plugin-webpack": "^0.0.1",
+    "react-hot-loader": "^4.3.12"
   },
   "author": "barry.yansh@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  }
 }

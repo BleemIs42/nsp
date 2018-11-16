@@ -1,4 +1,4 @@
-import { CFG_KEYS, getCfg, Interfaces, ioc, NSP, path } from '@nsp/plugin-utils'
+import { CFG_KEYS, getPluginCfg, Interfaces, ioc, NSP, path } from '@nsp/plugin-utils'
 import { writeFileSync } from 'fs'
 import { join } from 'path'
 import { mkdir, touch } from 'shelljs'
@@ -28,7 +28,7 @@ const init = () => {
 
 class Init implements Interfaces.Cli {
   public get config(){
-    return getCfg(INIT)
+    return getPluginCfg(INIT)
   }
   public get command() {
     return `${INIT} [dir]`
@@ -49,7 +49,15 @@ class Init implements Interfaces.Cli {
   }
   public handler(argv) {
     start('init...')
-    init()
+
+    if (loadCfg(NSP)) {
+      return
+    }
+    createCfgFile()
+    touch(join(path.absSrcPath, 'index.tsx'))
+    mkdir('-p', path.absTmpDirPath)
+    mkdir('-p', path.absPagesPath)
+
     success('init success!')
   }
 }

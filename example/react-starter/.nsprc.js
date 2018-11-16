@@ -1,5 +1,15 @@
 module.exports = {
-  plugins: [['@nsp/plugin-webpack', {
-    port: 8001
-  }]]
+  plugins: [
+    [
+      'webpack',
+      {
+        webpack(config) {
+          config
+            .entry('index')
+            .add('./src/index')
+            .end()
+        }
+      }
+    ]
+  ]
 }
