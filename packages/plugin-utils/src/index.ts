@@ -1,5 +1,8 @@
 export { default as path } from './path'
+export { default as IOC } from './ioc'
 import IOC from './ioc'
+import * as utils from './utils'
+export { utils }
 
 export const NSP = 'nsp'
 
@@ -9,7 +12,7 @@ export const CFG_KEYS = {
 }
 
 // tslint:disable-next-line:no-namespace
-export namespace Interfaces{
+export namespace Interfaces {
   export interface Cli {
     command: string
     describe: string

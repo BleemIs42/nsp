@@ -1,4 +1,4 @@
-import { Interfaces } from '@nsp/plugin-utils'
+import { Interfaces, utils } from '@nsp/plugin-utils'
 import { ip } from 'address'
 import chalk from 'chalk'
 import * as Fastify from 'fastify'
@@ -24,7 +24,11 @@ export default class Dev implements Interfaces.Cli {
     }
   }
   public async handler(argv) {
-    const port = argv.port
+    const port = await utils.autoPort(argv.port)
+    if (!port) {
+      return
+    }
+
     const config = chainConfig('development')
     const fastify = Fastify()
 
@@ -40,7 +44,8 @@ export default class Dev implements Interfaces.Cli {
     const webpackInstance = devMiddleware(compiler, {
       stats: {
         children: false,
-        modules: false
+        modules: false,
+        warn: false
       }
     })
     fastify.use(webpackInstance)

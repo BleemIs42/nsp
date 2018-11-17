@@ -54,4 +54,7 @@ export default (config: Config) => {
       }
     }
   ])
+
+  // / filter `Conflicting order between` warning
+  config.plugin('filter-css-conflicting-warnings').use(require('./FilterCSSConflictingWarning.js').default)
 }

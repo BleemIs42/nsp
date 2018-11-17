@@ -9,7 +9,7 @@ import plugins from './plugins'
 
 export default (mode: 'development' | 'production') => {
   process.env.NODE_ENV = mode
-  
+
   const config = new Config()
   const cfgSet = getCfg()
 
@@ -29,7 +29,10 @@ export default (mode: 'development' | 'production') => {
     name: 'manifest'
   })
   config.resolve.extensions.merge(['.js', '.jsx', '.ts', '.tsx', '.vue'])
+
   config.resolve.alias.set('@', path.absSrcPath)
+  Object.keys(cfgSet.alias).forEach((key) => config.resolve.alias.set(key, cfgSet.alias[key]))
+
   config.resolveLoader.modules
     .add('node_modules')
     .add(join(__dirname, '../../node_modules'))

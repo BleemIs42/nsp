@@ -23,10 +23,10 @@ export const getCfg = () => {
     tsLoaderOption: {
       transformers: {
         after: [],
-        before: [],
+        before: []
       },
-      ...(pluginCfg.tsLoaderOption || {}),
-    },
+      ...(pluginCfg.tsLoaderOption || {})
+    }
   }
 }
 
