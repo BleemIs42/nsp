@@ -1,8 +1,8 @@
 export { default as path } from './path'
 export { default as IOC } from './ioc'
 import IOC from './ioc'
-import * as utils from './utils'
-export { utils }
+import * as aUtils from './utils'
+export const utils = aUtils
 
 export const NSP = 'nsp'
 

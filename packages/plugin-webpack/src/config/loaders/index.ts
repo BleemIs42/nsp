@@ -72,8 +72,8 @@ export default (config: Config) => {
       transpileOnly: true,
       ...restTsLoaderOption,
       getCustomTransformers: () => ({
+        before: tsImport.concat(transformers.before || []),
         after: transformers.after || [],
-        before: tsImport.concat(transformers.before || [])
       })
     })
 }

@@ -96,7 +96,7 @@ export default class Dev implements Interfaces.Cli {
           [
             `\nApp running at:`,
             `  - Local:    ${chalk.underline.blueBright(`http://localhost:${port}`)}`,
-            `  - Network:  ${chalk.underline.blueBright(`http://${ip()}:${port}`)}`
+            `  - Network:  ${chalk.underline.blueBright(`http://${ip()}:${port}\n\n`)}`
           ].join('\n')
         )
       })
