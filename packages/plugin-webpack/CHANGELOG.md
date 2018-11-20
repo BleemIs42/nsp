@@ -5,12 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## <small>0.0.14 (2018-11-20)</small>
 
-**Note:** Version bump only for package @nsp/cli
-
-
-
-
-
-## <small>0.0.13 (2018-11-20)</small>
-
-* docs(cli): changelog ([9dd9e60](https://github.com/BarryYan/nsp/commit/9dd9e60))
+* docs(plugin-webpack): rm changelog ([26bd0ae](https://github.com/BarryYan/nsp/commit/26bd0ae))
