@@ -5,9 +5,6 @@
     "packages/*"
   ],
   "command": {
-    "version": {
-      "changelogPreset": "cz-conventional-changelog"
-    },
     "publish": {
       "conventionalCommits": true,
       "registry": "https://registry.npmjs.org"
@@ -20,7 +17,8 @@
       "bug": ":bug: Bug Fix",
       "documentation": ":book: Documentation"
     },
-    "repo": "BarryYan/nsp"
+    "repo": "BarryYan/nsp",
+    "cacheDir": ".changelog"
   },
   "npmClient": "yarn"
 }
