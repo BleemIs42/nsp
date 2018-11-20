@@ -45,14 +45,13 @@
   "license": "MIT",
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-emoji"
     },
     "cz-emoji": {
       "scopes": [
         "cli",
         "plugin-utils",
-        "plugin-webpack",
-        "nsp"
+        "plugin-webpack"
       ]
     }
   },
