@@ -5,12 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## <small>0.0.12 (2018-11-20)</small>
 
-**Note:** Version bump only for package @nsp/plugin-webpack
-
-
-
-
-
-## <small>0.0.11 (2018-11-20)</small>
-
-* docs: rm changelog ([6a21b28](https://github.com/BarryYan/nsp/commit/6a21b28))
+* docs(cli): rem change ([c2a71f3](https://github.com/BarryYan/nsp/commit/c2a71f3))
