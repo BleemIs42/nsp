@@ -7,10 +7,9 @@
   "command": {
     "version": {
       "conventionalCommits": true,
-      "changelog-preset": "cz-emoji"
+      "changelogPreset": "cz-emoji"
     },
     "publish": {
-      "conventionalCommits": true,
       "registry": "https://registry.npmjs.org"
     }
   },
