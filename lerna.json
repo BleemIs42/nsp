@@ -1,8 +1,21 @@
 {
   "useWorkspaces": true,
-  "packages": [
-    "packages/*"
-  ],
+  "version": "independent",
+  "packages": ["packages/*"],
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "registry": "https://registry.npmjs.org"
+    }
+  },
+  "changelog": {
+    "labels": {
+      "feature": ":sparkles: New Feature",
+      "enhancement": ":rocket: Enhancement",
+      "bug": ":bug: Bug Fix",
+      "docs": ":book: Documentation"
+    }
+  },
   "npmClient": "yarn",
   "version": "0.0.2"
 }
