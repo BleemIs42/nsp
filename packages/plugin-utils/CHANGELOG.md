@@ -5,12 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## <small>0.0.16 (2018-11-20)</small>
 
-**Note:** Version bump only for package @nsp/plugin-webpack
-
-
-
-
-
-## <small>0.0.15 (2018-11-20)</small>
-
-* fix(plugin-webpack): rm changelog ([2624707](https://github.com/BarryYan/nsp/commit/2624707))
+* fix(plugin-utils): rm changelog ([2769873](https://github.com/BarryYan/nsp/commit/2769873))
