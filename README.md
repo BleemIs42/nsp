@@ -1,9 +1,22 @@
 # nsp
-> `nsp` named from Nature Spirit Pavilion. A **cli** for you to develop yourself plugins system, all you use in project, such as `Webpack`, `React`, `Vue` etc, inspired by [ddot](https://github.com/Jetsly/ddot).
+[![NPM version](https://img.shields.io/npm/v/@nsp/cli.svg?style=flat)](https://npmjs.org/package/@nsp/cli)
+[![Build Status](https://img.shields.io/travis/barryyan/@nsp/cli.svg?style=flat)](https://travis-ci.org/barryyan/nsp)
+[![NPM downloads](http://img.shields.io/npm/dm/@nsp/cli.svg?style=flat)](https://npmjs.org/package/@nsp/cli)
 
-## Install
+A lightweight **cli** for you use plugin, such as `React`, `Vue`, `Webpack` etc, to registry command, In a project, you can ddd [webpack plugin](https://github.com/BarryYan/nsp/tree/master/packages/plugin-webpack) to build application. `nsp` named from Nature Spirit Pavilion,  inspired by [ddot](https://github.com/Jetsly/ddot).
+
+---
+
+## Getting Started
 ```bash
-yarn add @nsp/cli -g
-# or
-npm install @nsp/cli -g
+# Create app
+mkdir myApp && cd myApp && yarn init
+
+# Install cli
+yarn add @nsp/cli
+
+# Init app
+nsp init
+
 ```
+
