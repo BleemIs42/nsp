@@ -6,7 +6,8 @@
   ],
   "command": {
     "version": {
-      "conventionalCommits": true
+      "conventionalCommits": true,
+      "changelogPreset": "cz-conventional-changelog"
     },
     "publish": {
       "registry": "https://registry.npmjs.org"
