@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@example/react",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "nsp build"
   },
   "devDependencies": {
-    "@nsp/plugin-webpack": "^0.0.5",
+    "@nsp/plugin-webpack": "^0.0.6",
     "react-hot-loader": "^4.3.12"
   },
   "author": "barry.yansh@gmail.com",
