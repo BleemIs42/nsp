@@ -6,7 +6,7 @@
   ],
   "command": {
     "version": {
-      "conventionalCommits": true,
+      "conventionalCommits": true
     },
     "publish": {
       "registry": "https://registry.npmjs.org"
