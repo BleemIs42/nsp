@@ -14,7 +14,8 @@
     "watch-cli": "yarn workspace @nsp/cli watch",
     "watch-plugin-utils": "yarn workspace @nsp/plugin-utils watch",
     "watch-plugin-webpack": "yarn workspace @nsp/plugin-webpack watch",
-    "publish": "lerna publish"
+    "publish": "lerna publish",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,14 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-emoji"
+    },
+    "cz-emoji": {
+      "scopes": [
+        "cli",
+        "plugin-utils",
+        "plugin-webpack",
+        "nsp"
+      ]
     }
   }
 }

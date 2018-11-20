@@ -1,9 +1,7 @@
 {
   "useWorkspaces": true,
   "version": "0.0.3",
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "command": {
     "publish": {
       "conventionalCommits": true,
@@ -15,8 +13,9 @@
       "feature": ":sparkles: New Feature",
       "enhancement": ":rocket: Enhancement",
       "bug": ":bug: Bug Fix",
-      "docs": ":book: Documentation"
-    }
+      "documentation": ":book: Documentation"
+    },
+    "repo": "BarryYan/nsp"
   },
   "npmClient": "yarn"
 }
