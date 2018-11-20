@@ -41,9 +41,6 @@ class Init implements Interfaces.Cli {
       dir: {
         default: 'test',
         hhh: 'ddd'
-      },
-      p: {
-        default: '111'
       }
     }
   }

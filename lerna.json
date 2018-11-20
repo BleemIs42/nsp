@@ -3,21 +3,11 @@
   "version": "independent",
   "packages": ["packages/*"],
   "command": {
-    "version": {
+    "publish": {
       "conventionalCommits": true,
       "changelogPreset": "cz-emoji",
       "ignoreChanges": ["docs", "*.html", "*.md"]
     }
-  },
-  "changelog": {
-    "labels": {
-      "feature": ":sparkles: New Feature",
-      "enhancement": ":rocket: Enhancement",
-      "bug": ":bug: Bug Fix",
-      "documentation": ":book: Documentation"
-    },
-    "repo": "BarryYan/nsp",
-    "cacheDir": ".changelog"
   },
   "npmClient": "yarn"
 }
