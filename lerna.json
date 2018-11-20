@@ -1,7 +1,9 @@
 {
   "useWorkspaces": true,
-  "version": "independent",
-  "packages": ["packages/*"],
+  "version": "0.0.3",
+  "packages": [
+    "packages/*"
+  ],
   "command": {
     "publish": {
       "conventionalCommits": true,
@@ -16,6 +18,5 @@
       "docs": ":book: Documentation"
     }
   },
-  "npmClient": "yarn",
-  "version": "0.0.2"
+  "npmClient": "yarn"
 }
