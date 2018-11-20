@@ -1,6 +1,5 @@
 {
   "useWorkspaces": true,
-  "version": "independent",
   "packages": ["packages/*"],
   "command": {
     "publish": {

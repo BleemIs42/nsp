@@ -27,7 +27,7 @@ const init = () => {
 }
 
 class Init implements Interfaces.Cli {
-  public get config(){
+  public get config() {
     return getPluginCfg(INIT)
   }
   public get command() {
@@ -37,12 +37,7 @@ class Init implements Interfaces.Cli {
     return 'init current dir with nsp config file'
   }
   public get builder() {
-    return {
-      dir: {
-        default: 'test',
-        hhh: 'ddd'
-      }
-    }
+    return {}
   }
   public handler(argv) {
     start('init...')
