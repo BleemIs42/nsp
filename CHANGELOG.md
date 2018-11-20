@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>0.0.15 (2018-11-20)</small>
+
+* fix(cli): fix config ([bc140b8](https://github.com/BarryYan/nsp/commit/bc140b8))
+* fix(cli): fix lernna config ([421d6f1](https://github.com/BarryYan/nsp/commit/421d6f1))
+* fix(plugin-webpack): rm changelog ([2624707](https://github.com/BarryYan/nsp/commit/2624707))
+
+
+
+
+
 ## <small>0.0.14 (2018-11-20)</small>
 
 * docs(plugin-webpack): rm changelog ([26bd0ae](https://github.com/BarryYan/nsp/commit/26bd0ae))
