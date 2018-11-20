@@ -1,5 +1,6 @@
 {
   "useWorkspaces": true,
+  "version": "3.4.3",
   "packages": ["packages/*"],
   "command": {
     "publish": {
