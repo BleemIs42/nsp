@@ -10,6 +10,7 @@
       "changelogPreset": "cz-conventional-changelog"
     },
     "publish": {
+      "conventionalCommits": true,
       "registry": "https://registry.npmjs.org"
     }
   },
