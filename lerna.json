@@ -3,6 +3,10 @@
   "version": "0.0.3",
   "packages": ["packages/*"],
   "command": {
+    "version": {
+      "conventionalCommits": true,
+      "changelog-preset": "cz-emoji"
+    },
     "publish": {
       "conventionalCommits": true,
       "registry": "https://registry.npmjs.org"
