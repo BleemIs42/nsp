@@ -39,7 +39,7 @@ class Init implements Interfaces.Cli {
   public get builder() {
     return {
       dir: {
-        default: 'dir'
+        default: 'init dir'
       }
     }
   }

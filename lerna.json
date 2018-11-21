@@ -5,7 +5,7 @@
   "command": {
     "publish": {
       "conventionalCommits": true,
-      "changelogPreset": "cz-emoji",
+      "changelogPreset": "cz-commit-emoji",
       "ignoreChanges": ["docs", "*.html", "*.md"]
     }
   },

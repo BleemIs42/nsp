@@ -42,9 +42,9 @@
   "license": "MIT",
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-emoji"
+      "path": "./node_modules/cz-commit-emoji"
     },
-    "cz-emoji": {
+    "cz-commit-emoji": {
       "symbol": true,
       "scopes": [
         "cli",
