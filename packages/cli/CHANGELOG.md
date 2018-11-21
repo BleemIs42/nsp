@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.34](https://github.com/BarryYan/nsp/compare/@nsp/cli@0.0.33...@nsp/cli@0.0.34) (2018-11-21)
+
+
+### 🐛 Fix
+
+* **cli:** fix default command ([e4fa6ce](https://github.com/BarryYan/nsp/commit/e4fa6ce))
+
+
+
+
+
 ## [0.0.33](https://github.com/BarryYan/nsp/compare/@nsp/cli@0.0.30...@nsp/cli@0.0.33) (2018-11-21)
 
 
