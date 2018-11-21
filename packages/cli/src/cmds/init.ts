@@ -34,7 +34,7 @@ class Init implements Interfaces.Cli {
     return `${INIT}`
   }
   public get describe() {
-    return 'init current dir with nsp config file'
+    return 'init current dir'
   }
   public get builder() {
     return {}
