@@ -31,17 +31,13 @@ class Init implements Interfaces.Cli {
     return getPluginCfg(INIT)
   }
   public get command() {
-    return `${INIT} [dir]`
+    return `${INIT}`
   }
   public get describe() {
     return 'init current dir with nsp config file'
   }
   public get builder() {
-    return {
-      dir: {
-        default: 'init a dir'
-      }
-    }
+    return {}
   }
   public handler(argv) {
     start('init...')
