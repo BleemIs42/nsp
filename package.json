@@ -45,7 +45,6 @@
       "path": "./node_modules/cz-commit-emoji"
     },
     "cz-commit-emoji": {
-      "symbol": true,
       "scopes": [
         "cli",
         "plugin-utils",
