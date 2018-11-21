@@ -13,10 +13,10 @@ A lightweight **cli** for you use plugin, such as `React`, `Vue`, `Webpack` etc,
 mkdir myApp && cd myApp && yarn init
 
 # Install cli
-yarn add @nsp/cli
+yarn add @nsp/cli --dev
 
 # Init app
-nsp init
+npx nsp init
 
 ```
 
