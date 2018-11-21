@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.33](https://github.com/BarryYan/nsp/compare/@nsp/cli@0.0.30...@nsp/cli@0.0.33) (2018-11-21)
+
+
+* ✨ (cli): ([0b4e3cd](https://github.com/BarryYan/nsp/commit/0b4e3cd))
+
+
+### ✨ Introducing new features.
+
+* **cli:** addd ([04c5a20](https://github.com/BarryYan/nsp/commit/04c5a20))
+* **cli:** adddddd ([d13a87b](https://github.com/BarryYan/nsp/commit/d13a87b))
+
+
+
+
+
 ## <small>0.0.30 (2018-11-21)</small>
 
 * ✨ (cli): add ([4e011b0](https://github.com/BarryYan/nsp/commit/4e011b0))

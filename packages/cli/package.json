@@ -1,6 +1,6 @@
 {
   "name": "@nsp/cli",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "bin": {
     "nsp": "bin/nsp.js"
   },
