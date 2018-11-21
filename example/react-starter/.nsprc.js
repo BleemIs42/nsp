@@ -13,7 +13,7 @@ module.exports = {
           img: path.join(__dirname, './src/img'),
         },
         define: {
-          g: { t: 'test' },
+          g: { test: 'test' },
         },
         webpack(config) {
           config
