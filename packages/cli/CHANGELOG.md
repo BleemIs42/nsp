@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>0.0.29 (2018-11-21)</small>
+
+* ✨ (cli): add init a dir ([9efd0f5](https://github.com/BarryYan/nsp/commit/9efd0f5))
+
+
+
+
+
 ## <small>0.0.28 (2018-11-21)</small>
 
 * ✨ (cli): add init ([10f5b5b](https://github.com/BarryYan/nsp/commit/10f5b5b))
