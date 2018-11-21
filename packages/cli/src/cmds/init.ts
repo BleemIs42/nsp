@@ -34,7 +34,7 @@ class Init implements Interfaces.Cli {
     return `${INIT}`
   }
   public get describe() {
-    return 'init current dir'
+    return 'init dir'
   }
   public get builder() {
     return {}
