@@ -3,6 +3,140 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.19 (2018-11-22)
+
+
+* Publish ([0906192](https://github.com/BarryYan/nsp/commit/0906192))
+* Publish ([8f9fb8b](https://github.com/BarryYan/nsp/commit/8f9fb8b))
+* Publish ([5b5defb](https://github.com/BarryYan/nsp/commit/5b5defb))
+* Publish ([fcf2935](https://github.com/BarryYan/nsp/commit/fcf2935))
+* Publish ([d746e66](https://github.com/BarryYan/nsp/commit/d746e66))
+* remove changelog ([2856903](https://github.com/BarryYan/nsp/commit/2856903))
+* Publish ([4bd2061](https://github.com/BarryYan/nsp/commit/4bd2061))
+* Publish ([5548acc](https://github.com/BarryYan/nsp/commit/5548acc))
+* Publish ([3bb4462](https://github.com/BarryYan/nsp/commit/3bb4462))
+* v0.0.18 ([6e7c700](https://github.com/BarryYan/nsp/commit/6e7c700))
+* v0.0.17 ([a955a15](https://github.com/BarryYan/nsp/commit/a955a15))
+
+
+### ✨ Features
+
+* **cli:** add changelog command ([e4cc3db](https://github.com/BarryYan/nsp/commit/e4cc3db))
+
+
+
+## 0.0.16 (2018-11-20)
+
+
+* v0.0.16 ([994d5b9](https://github.com/BarryYan/nsp/commit/994d5b9))
+
+
+
+## 0.0.15 (2018-11-20)
+
+
+* v0.0.15 ([6370106](https://github.com/BarryYan/nsp/commit/6370106))
+
+
+
+## 0.0.14 (2018-11-20)
+
+
+* v0.0.14 ([4ba4102](https://github.com/BarryYan/nsp/commit/4ba4102))
+
+
+
+## 0.0.13 (2018-11-20)
+
+
+* v0.0.13 ([158ee7a](https://github.com/BarryYan/nsp/commit/158ee7a))
+
+
+
+## 0.0.12 (2018-11-20)
+
+
+* v0.0.12 ([f620c03](https://github.com/BarryYan/nsp/commit/f620c03))
+
+
+
+## 0.0.11 (2018-11-20)
+
+
+* v0.0.11 ([e45aa31](https://github.com/BarryYan/nsp/commit/e45aa31))
+* v0.0.10 ([863dc29](https://github.com/BarryYan/nsp/commit/863dc29))
+
+
+
+## 0.0.9 (2018-11-20)
+
+
+* v0.0.9 ([fa501d4](https://github.com/BarryYan/nsp/commit/fa501d4))
+
+
+
+## 0.0.8 (2018-11-20)
+
+
+* v0.0.8 ([7b2715f](https://github.com/BarryYan/nsp/commit/7b2715f))
+
+
+
+## 0.0.7 (2018-11-20)
+
+
+* v0.0.7 ([9369dfe](https://github.com/BarryYan/nsp/commit/9369dfe))
+
+
+
+## 0.0.6 (2018-11-20)
+
+
+* v0.0.6 ([0f2cfdb](https://github.com/BarryYan/nsp/commit/0f2cfdb))
+
+
+
+## 0.0.5 (2018-11-20)
+
+
+* v0.0.5 ([b90778b](https://github.com/BarryYan/nsp/commit/b90778b))
+
+
+
+## 0.0.4 (2018-11-20)
+
+
+* v0.0.4 ([08705a3](https://github.com/BarryYan/nsp/commit/08705a3))
+
+
+
+## 0.0.3 (2018-11-20)
+
+
+* v0.0.3 ([51bde7b](https://github.com/BarryYan/nsp/commit/51bde7b))
+
+
+
+## 0.0.2 (2018-11-20)
+
+
+* add showHelp ([911735a](https://github.com/BarryYan/nsp/commit/911735a))
+* v0.0.2 ([053c0c5](https://github.com/BarryYan/nsp/commit/053c0c5))
+* add opts & dir ([a2d9173](https://github.com/BarryYan/nsp/commit/a2d9173))
+* add server ([84087fc](https://github.com/BarryYan/nsp/commit/84087fc))
+* add ioc controller ([1eb01cd](https://github.com/BarryYan/nsp/commit/1eb01cd))
+* add help options ([93a7a07](https://github.com/BarryYan/nsp/commit/93a7a07))
+* add readme ([2726fea](https://github.com/BarryYan/nsp/commit/2726fea))
+* add nsp init ([05644ea](https://github.com/BarryYan/nsp/commit/05644ea))
+* add init command ([d8f0adb](https://github.com/BarryYan/nsp/commit/d8f0adb))
+* add path ([12021f2](https://github.com/BarryYan/nsp/commit/12021f2))
+* add plugin config options ([0b7d448](https://github.com/BarryYan/nsp/commit/0b7d448))
+* init ([e2c45f8](https://github.com/BarryYan/nsp/commit/e2c45f8))
+
+
+
+
+
 ## [0.0.18](https://github.com/BarryYan/nsp/compare/v0.0.16...v0.0.18) (2018-11-22)
 
 
@@ -56,8 +190,3 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * v0.0.17 ([a955a15](https://github.com/BarryYan/nsp/commit/a955a15))
 * fix(cli): rm changlgo ([8e5674c](https://github.com/BarryYan/nsp/commit/8e5674c))
 * fix(cli): fix learn config ([642b0ce](https://github.com/BarryYan/nsp/commit/642b0ce))
-
-
-
-
-

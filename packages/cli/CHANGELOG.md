@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.36](https://github.com/BarryYan/nsp/compare/@nsp/cli@0.0.35...@nsp/cli@0.0.36) (2018-11-22)
+
+
+### ✨ Features
+
+* **cli:** add changelog command ([e4cc3db](https://github.com/BarryYan/nsp/commit/e4cc3db))
+
+
+
+
+
 ## [0.0.35](https://github.com/BarryYan/nsp/compare/@nsp/cli@0.0.34...@nsp/cli@0.0.35) (2018-11-21)
 
 
