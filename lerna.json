@@ -6,8 +6,7 @@
     "publish": {
       "conventionalCommits": true,
       "changelogPreset": "cz-commit-emoji",
-      "ignoreChanges": ["docs", "*.html", "*.md"],
-      "npmClient": "npm"
+      "ignoreChanges": ["docs", "*.html", "*.md"]
     }
   },
   "npmClient": "yarn"
