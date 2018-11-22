@@ -6,6 +6,7 @@
     "publish": {
       "conventionalCommits": true,
       "changelogPreset": "cz-commit-emoji",
+      "ignoreChanges": ["docs", "*.html", "*.md"],
       "registry": "https://registry.npmjs.org"
     }
   },
