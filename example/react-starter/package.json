@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nsp changelog",
+    "changelog": "nsp changelog",
+    "dev": "nsp dev",
     "build": "nsp build"
   },
   "devDependencies": {
