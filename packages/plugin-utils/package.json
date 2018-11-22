@@ -1,6 +1,6 @@
 {
   "name": "@nsp/plugin-utils",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -rf lib && tsc",
