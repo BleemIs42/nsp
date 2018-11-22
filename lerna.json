@@ -9,5 +9,5 @@
       "ignoreChanges": ["docs", "*.html", "*.md"]
     }
   },
-  "npmClient": "npm"
+  "npmClient": "yarn"
 }
