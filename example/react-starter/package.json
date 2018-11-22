@@ -1,11 +1,11 @@
 {
   "private": true,
   "name": "@example/react",
-  "version": "0.0.26",
+  "version": "0.0.18",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nsp dev",
+    "start": "nsp changelog",
     "build": "nsp build"
   },
   "devDependencies": {

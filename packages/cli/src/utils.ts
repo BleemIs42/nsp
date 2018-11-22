@@ -17,16 +17,23 @@ export const loadCfg: (name: string) => Cfg = (name) => {
   return cfgFile && cfgFile.config
 }
 
+export const addDefaultCommands = () => {
+  ls(`${__dirname}/cmds/*.js`).forEach((file) => {
+    require(file)
+  })
+}
+
 const getPluginName = (name) => {
   const pluginNames = /plugin-(\w+)$/.exec(name)
   return pluginNames ? pluginNames[1] : name
 }
 
-export const addDefaultCommands = () => {
-  ls(`${__dirname}/cmds/*.js`).forEach(file => {
-    require(file)
-  })
-}
+const getModulePaths = ({ cfgName, pluginName }) => [
+  `@${NSP}/${pluginName}`,
+  `@${NSP}/plugin-${pluginName}`,
+  `${__dirname}/plugins/${pluginName}`,
+  cfgName
+]
 
 export const loadPlugins: (cfg: Cfg) => void = (cfg) => {
   if (!cfg) {
@@ -36,12 +43,23 @@ export const loadPlugins: (cfg: Cfg) => void = (cfg) => {
   plugins.forEach((plugin) => {
     const [cfgName, opts = {}] = Array.isArray(plugin) ? plugin : [plugin]
     const pluginName = getPluginName(cfgName)
-    const pluginModule = resolveCwd.silent(`@${NSP}/plugin-${pluginName}`) || resolveCwd.silent(pluginName)
-    if (pluginModule) {
+    const modules = getModulePaths({ cfgName, pluginName })
+      .map((id) => resolveCwd.silent(id))
+      .filter((has) => has)
+    if (modules.length) {
       ioc.bind(CFG_KEYS.PLUGIN_CFG(pluginName), opts)
-      require(pluginModule)
+      require(modules[0])
     } else {
-      warn(`Plugin ${pluginName} does not found`)
+      warn(`Plugin ${pluginName} does not found, , paths in:`)
+      const ui = cliui()
+      const paths = getModulePaths({ cfgName, pluginName })
+      paths.forEach((path, idx) => {
+        ui.div({
+          text: `${idx === paths.length - 1 ? '└──' : '├──'}${path}`,
+          padding: [0, 0, 0, 5]
+        })
+      })
+      process.stdout.write(`${ui.toString()}\n`)
     }
   })
 }
