@@ -1,10 +1,10 @@
-import { CFG_KEYS, getPluginCfg, Interfaces, ioc, NSP, path } from '@nsp/plugin-utils'
+import { CFG_KEYS, getPluginCfg, Interfaces, ioc, path } from '@nsp/plugin-utils'
 import * as conventionalChangelogCore from 'conventional-changelog-core'
 import { readFileSync, writeFileSync } from 'fs'
 import * as getStream from 'get-stream'
 import { join } from 'path'
 import { start, success } from 'signale'
-import { BLANK_LINE, CHANGELOG_HEADER, EOL } from './constants'
+import { BLANK_LINE, CHANGELOG_HEADER } from './constants'
 
 const CHANGELOG = 'changelog'
 

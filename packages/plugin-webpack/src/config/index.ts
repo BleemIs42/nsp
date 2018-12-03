@@ -1,5 +1,4 @@
 import { path } from '@nsp/plugin-utils'
-import chalk from 'chalk'
 import { join } from 'path'
 import * as Config from 'webpack-chain'
 import { getCfg } from '../utils'
