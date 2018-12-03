@@ -1,6 +1,6 @@
 {
   "name": "@nsp/cli",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "bin": {
     "nsp": "bin/nsp.js"
   },
@@ -12,11 +12,11 @@
     "watch": "npm run build && tsc -w"
   },
   "dependencies": {
-    "@nsp/plugin-utils": "^0.0.26",
+    "@nsp/plugin-utils": "^0.0.27",
     "chalk": "^2.4.1",
-    "cosmiconfig": "^5.0.6",
     "cliui": "^4.1.0",
     "conventional-changelog-core": "^3.0.5",
+    "cosmiconfig": "^5.0.6",
     "cz-commit-emoji": "^1.0.1",
     "get-stream": "^4.1.0",
     "resolve-cwd": "^2.0.0",
