@@ -19,7 +19,7 @@
     "cliui": "^4.1.0",
     "css-hot-loader": "^1.4.2",
     "css-loader": "^1.0.1",
-    "fastify": "^1.13.0",
+    "fastify": "^2.15.1",
     "fastify-http-proxy": "^0.8.0",
     "file-loader": "^2.0.0",
     "filesize": "^3.6.1",
